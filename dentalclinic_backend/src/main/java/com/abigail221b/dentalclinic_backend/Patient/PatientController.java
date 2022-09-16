@@ -37,10 +37,10 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity<String> addPatient(@RequestBody PatientDTO patientDTO) {
+    public ResponseEntity<Patient> addPatient(@RequestBody PatientDTO patientDTO) {
         Patient patient = modelMapper.map(patientDTO, Patient.class);
         patientRepository.save(patient);
-        return new ResponseEntity<>("New patient added", HttpStatus.OK);
+        return new ResponseEntity<>(patient, HttpStatus.OK);
     }
 
     @PutMapping
