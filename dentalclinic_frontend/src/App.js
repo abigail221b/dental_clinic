@@ -5,6 +5,7 @@ function App() {
 	return (
 		<>
 			<Link to="patient">Patients</Link>
+			<Link to="dentist">Dentist</Link>
 			<hr />
 			<Outlet />
 		</>
