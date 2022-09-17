@@ -30,6 +30,12 @@ public class DentistController {
         return new ResponseEntity<Iterable<Dentist>>(dentistRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Dentist> getDentistById(@PathVariable(name="id") int id) {
+        Dentist dentist = dentistRepository.findById(id).get();
+        return new ResponseEntity<Dentist>(dentist, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Dentist> addDentist(@RequestBody DentistDTO dentistDTO) {
         Dentist dentist = modelMapper.map(dentistDTO, Dentist.class);
