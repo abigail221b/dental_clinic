@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PatientRow from "./PatientRow";
 
 const PatientsList = () => {
 
@@ -12,12 +13,12 @@ const PatientsList = () => {
 
     return (
         <>
-            { patients.map(patient => <p> {patient.id} 
-                                            {patient.firstName} 
-                                            {patient.lastName} 
-                                            {patient.dateOfBirth} 
-                                            {patient.address} 
-                                            {patient.phoneNumber}</p>) }
+            { patients.map(patient => <PatientRow id={patient.id} 
+                                                  firstName={patient.firstName} 
+                                                  lastName={patient.lastName} 
+                                                  dateOfBirth={patient.dateOfBirth} 
+                                                  address={patient.address} 
+                                                  phoneNumber={patient.phoneNumber} />) }
         </>
     );
 }
