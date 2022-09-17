@@ -16,6 +16,7 @@ const DentistDetail = () => {
     return (
         <>
             <span>{dentist.id} {dentist.firstName} {dentist.lastName} {dentist.phoneNumber}</span>
+            <Link to={{ pathname: `/dentist/update/${dentist.id}` }}>Edit</Link>
         </>
     );
 }
