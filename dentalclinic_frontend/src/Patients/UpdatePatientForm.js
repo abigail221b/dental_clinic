@@ -26,7 +26,7 @@ const UpdatePatientForm = () => {
 
     return (
         <form>
-            <input type="text"  value={patient.firstName} onChange={(e) => setPatient(patient => { return {...patient, firstName: e.target.value }}) } />
+            <input type="text" value={patient.firstName} onChange={(e) => setPatient(patient => { return {...patient, firstName: e.target.value }}) } />
             <input type="text" value={patient.lastName} onChange={(e) => setPatient(patient => { return {...patient, lastName: e.target.value }}) } />
             <input type="date" value={patient.dateOfBirth} onChange={(e) => setPatient(patient => { return {...patient, dateOfBirth: e.target.value }}) } />
             <input type="text" value={patient.address} onChange={(e) => setPatient(patient => { return {...patient, address: e.target.value }}) } />
