@@ -11,6 +11,8 @@ import UpdatePatientForm from './Patients/UpdatePatientForm';
 import DentistDashboard from "./Dentists/DentistDashboard";
 import DentistList from './Dentists/DentistList';
 import NewDentistForm from "./Dentists/NewDentistForm";
+import UpdateDentistForm from './Dentists/UpdateDentistForm';
+import DentistDetail from './Dentists/DentistDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,6 +29,8 @@ root.render(
 					<Route path="dentist" element={ <DentistDashboard /> }>
 						<Route path="all" element={ <DentistList /> } />
 						<Route path="new" element={ <NewDentistForm /> } />
+						<Route path=":id" element={ <DentistDetail /> } />
+						<Route path="update/:id" element={ <UpdateDentistForm />}/>
 					</Route>
 				</Route>
 			</Routes>
