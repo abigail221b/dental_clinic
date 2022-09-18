@@ -14,7 +14,7 @@ const PatientDetail = () => {
     return (
         <>
             <span>{patient.id} {patient.firstName} {patient.lastName} {patient.dateOfBirth} {patient.address} {patient.phoneNumber}</span>
-            <Link to={{ pathname: `/patient/update/${ id }` }}>Update</Link>
+            <Link to={{ pathname: `/patient/${ id }/update-form`}}> Update </Link>
         </>
     );
 }
