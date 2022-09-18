@@ -26,7 +26,8 @@ root.render(
 						<Route path="all" element={ <PatientsList /> }/>
 						<Route path="new" element={ <NewPatientForm />}/>
 						<Route path=":id" element={ <PatientDetail /> } />
-						<Route path=":id/update-form" element={ <UpdatePatientForm /> } />						
+						<Route path=":id/update-form" element={ <UpdatePatientForm /> } />		
+						<Route path=":id/appointment-form" element={ <NewAppointmentForm /> } />				
 					</Route>
 					<Route path="dentist" element={ <DentistDashboard /> }>
 						<Route path="all" element={ <DentistList /> } />
