@@ -41,8 +41,26 @@ const NewAppointmentForm = () => {
                                             Dr. {dentist.firstName} {dentist.lastName}
                                           </option>) }
             </select>
-            <input type="date" onChange={(e) => setAppointment(appointment => {return {...appointment, date: e.target.value }})}/>
-            <input type="time" onChange={(e) => setAppointment(appointment => {return {...appointment, startTime: e.target.value }})}/>
+            <input type="date" 
+                   onChange={(e) => setAppointment(appointment => { 
+                                                        return {
+                                                            ...appointment, 
+                                                            id: {
+                                                                ...appointment.id,
+                                                                date: e.target.value
+                                                            }
+                                                        }
+                                                    })} />
+            <input type="time" 
+                   onChange={(e) => setAppointment(appointment => {
+                                                        return {
+                                                            ...appointment, 
+                                                            id: {
+                                                                ...appointment.id,
+                                                                startTime: e.target.value
+                                                            }
+                                                        }
+                                                    })} />
             <input type="number" onChange={(e) => setAppointment(appointment => { return {...appointment, duration: e.target.value }})}/>
             <input type="text" placeholder="description" onChange={(e) => setAppointment(appointment => { return {...appointment, description: e.target.value }})}/>
             <button onClick={(e) => handleSubmit(e) }>Submit</button>
