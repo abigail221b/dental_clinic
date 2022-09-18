@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const NewAppointmentForm = () => {
 
     const [appointment, setAppointment] = useState({});
-    const { patientID } = useParams();
+    const { id } = useParams();
     const [dentists, setDentists] = useState([]);
 
     useEffect(() => {
@@ -24,10 +24,10 @@ const NewAppointmentForm = () => {
                 ...appointment, 
                 id: {
                     ...appointment.id, 
-                    patientID: patientID } 
+                    patientID: id } 
                 }
             });
-    }, [patientID]);
+    }, [id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
