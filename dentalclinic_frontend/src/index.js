@@ -26,13 +26,13 @@ root.render(
 						<Route path="all" element={ <PatientsList /> }/>
 						<Route path="new" element={ <NewPatientForm />}/>
 						<Route path=":id" element={ <PatientDetail /> } />
-						<Route path="update/:id" element={ <UpdatePatientForm /> } />
+						<Route path=":id/update-form" element={ <UpdatePatientForm /> } />						
 					</Route>
 					<Route path="dentist" element={ <DentistDashboard /> }>
 						<Route path="all" element={ <DentistList /> } />
 						<Route path="new" element={ <NewDentistForm /> } />
 						<Route path=":id" element={ <DentistDetail /> } />
-						<Route path="update/:id" element={ <UpdateDentistForm />}/>
+						<Route path=":id/update-form" element={ <UpdateDentistForm />}/>
 					</Route>
 					<Route path="appointment" element={ <AppointmentDashboard/> }>
 						<Route path="new" element={ <NewAppointmentForm />} />
