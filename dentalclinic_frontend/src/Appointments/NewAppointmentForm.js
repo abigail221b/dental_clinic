@@ -8,7 +8,14 @@ const NewAppointmentForm = () => {
     const [dentists, setDentists] = useState([]);
 
     useEffect(() => {
-        setAppointment(appointment => { return {...appointment, patientID: patientID }});
+        setAppointment(appointment => { 
+            return {
+                ...appointment, 
+                id: {
+                    ...appointment.id, 
+                    patientID: patientID } 
+                }
+            });
 
         fetch("http://localhost:8080/dentist")
         .then(dentists => setDentists(dentists));
