@@ -35,9 +35,7 @@ root.render(
 						<Route path=":id" element={ <DentistDetail /> } />
 						<Route path=":id/update-form" element={ <UpdateDentistForm />}/>
 					</Route>
-					<Route path="appointment" element={ <AppointmentDashboard/> }>
-						<Route path="new" element={ <NewAppointmentForm />} />
-					</Route>
+					<Route path="appointment" element={ <AppointmentDashboard/> } />
 				</Route>
 			</Routes>
 		</BrowserRouter>
