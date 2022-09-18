@@ -6,7 +6,6 @@ const NewAppointmentForm = () => {
     const [appointment, setAppointment] = useState({});
     const { patientID } = useParams();
     const [dentists, setDentists] = useState([]);
-    const [selectedDentist, setSelectedDentist] = useState(null);
 
     useEffect(() => {
         setAppointment(appointment => { return {...appointment, patientID: patientID }});
