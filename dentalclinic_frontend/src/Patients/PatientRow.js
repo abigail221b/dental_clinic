@@ -6,6 +6,7 @@ const PatientRow = ({ id, firstName, lastName, dateOfBirth, address, phoneNumber
             <span>{id} {firstName} {lastName} {dateOfBirth} {address} {phoneNumber}</span>
             <Link to={{ pathname: `/patient/${ id }`}}> View </Link>
             <Link to={{ pathname: `/patient/${ id }/update-form`}}> Update </Link>
+            <Link to={{ pathname: `/patient/${ id }/appointment-form`}}> Book Appointment </Link>
         </div>
     );
 }

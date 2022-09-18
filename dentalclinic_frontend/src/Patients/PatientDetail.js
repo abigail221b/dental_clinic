@@ -15,6 +15,7 @@ const PatientDetail = () => {
         <>
             <span>{patient.id} {patient.firstName} {patient.lastName} {patient.dateOfBirth} {patient.address} {patient.phoneNumber}</span>
             <Link to={{ pathname: `/patient/${ id }/update-form`}}> Update </Link>
+            <Link to={{ pathname: `/patient/${ id }/appointment-form`}}> Book Appointment </Link>
         </>
     );
 }
