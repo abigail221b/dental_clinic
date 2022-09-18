@@ -6,6 +6,7 @@ function App() {
 		<>
 			<Link to="patient">Patients</Link>
 			<Link to="dentist">Dentist</Link>
+			<Link to="appointment">Appointments</Link>
 			<hr />
 			<Outlet />
 		</>
