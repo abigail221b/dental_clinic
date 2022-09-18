@@ -1,5 +1,12 @@
+import { Link, Outlet } from "react-router-dom";
+
 const AppointmentDashboard = () => {
-    return "Appointment Dashboard";
+    return (
+        <>
+            <Link to="new">Add Appointment</Link>
+            <Outlet />
+        </>
+    );
 }
 
 export default AppointmentDashboard;
