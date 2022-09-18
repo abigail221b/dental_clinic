@@ -10,7 +10,12 @@ const NewAppointmentForm = () => {
     useEffect(() => {
         fetch("http://localhost:8080/dentist")
         .then(res => res.json())
-        .then(dentists => setDentists(dentists));
+        .then(dentists => {
+            setDentists(dentists);
+            setAppointment(appointment => {
+                return {...appointment, dentistID: dentists[0]}
+            });
+        });
     }, []);
 
     useEffect(() => {
