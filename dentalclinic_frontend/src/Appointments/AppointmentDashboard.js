@@ -38,6 +38,13 @@ const AppointmentDashboard = () => {
             <select value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
                 { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
             </select>
+
+            { appointments.map(appointment => 
+                    <p>{appointment.id.patient.firstName} 
+                    {appointment.id.patient.lastName}  
+                    {appointment.id.date} 
+                    {appointment.id.startTime} 
+                    Dr. {appointment.dentist.lastName}</p>) }
         </>
     );
 }
