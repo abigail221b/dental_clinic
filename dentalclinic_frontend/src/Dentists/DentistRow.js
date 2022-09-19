@@ -5,7 +5,7 @@ const DentistRow = ({id, firstName, lastName, phoneNumber}) => {
         <div>
             <span>{id} {firstName} {lastName} {phoneNumber}</span>
             <Link to={{ pathname: `/dentist/${id}` }}>View</Link>
-            <Link to={{ pathname: `/dentist/update/${id}` }}>Edit</Link>
+            <Link to={{ pathname: `/dentist/${id}/update-form` }}>Edit</Link>
         </div>
     );
 }
