@@ -1,5 +1,8 @@
 package com.abigail221b.dentalclinic_backend.Appointment;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(path = "/appointment")
@@ -25,6 +29,13 @@ public class AppointmentController {
     @GetMapping
     public ResponseEntity<Iterable<Appointment>> getAllAppointments() {
         return new ResponseEntity<Iterable<Appointment>>(appointmentRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Appointment>> getAppointmentsByDateAndDentistID(@RequestParam(name="date") String date, @RequestParam(name="dentistID") String dentistID) {
+        LocalDate dateParam = LocalDate.parse(date);
+        int dentistIDParam = Integer.parseInt(dentistID);
+        return new ResponseEntity<List<Appointment>>(appointmentRepository.findAllById_DateAndDentistId(dateParam, dentistIDParam), HttpStatus.OK);
     }
 
     @PostMapping
