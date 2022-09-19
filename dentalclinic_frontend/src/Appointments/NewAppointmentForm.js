@@ -13,7 +13,7 @@ const NewAppointmentForm = () => {
         .then(dentists => {
             setDentists(dentists);
             setAppointment(appointment => {
-                return {...appointment, dentistID: dentists[0]}
+                return {...appointment, dentistID: dentists[0].id}
             });
         });
     }, []);
