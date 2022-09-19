@@ -10,15 +10,22 @@ const AppointmentDashboard = () => {
                                                     }));
     const [dentists, setDentists] = useState([]);
     const [selectedDentistID, setSelectedDentistID] = useState(null);
+    const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/dentist")
         .then(res => res.json())
         .then(dentists => {
-            setDentists(dentists);
             setSelectedDentistID(dentists[0].id);
+            setDentists(dentists);
         });
     }, []);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/appointment/?date=${ date }&dentistID=${ selectedDentistID }`)
+        .then(res => res.json())
+        .then(appointments => setAppointments(appointments));
+    }, [date, selectedDentistID]);
 
     return (
         <>
