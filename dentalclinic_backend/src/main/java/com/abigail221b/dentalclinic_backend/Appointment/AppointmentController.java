@@ -38,6 +38,12 @@ public class AppointmentController {
         return new ResponseEntity<List<Appointment>>(appointmentRepository.findAllById_DateAndDentistId(dateParam, dentistIDParam), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/", params = {"patientID", "after"})
+    public ResponseEntity<List<Appointment>> getAppointmentsByPatientIDAfterDate(@RequestParam(name="patientID") int patientID, @RequestParam(name="after") String date) {
+        LocalDate dataParam = LocalDate.parse(date);
+        return new ResponseEntity<List<Appointment>>(appointmentRepository.findAllById_PatientIdAndId_DateAfter(patientID, dataParam), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Appointment> addAppointment(@RequestBody AppointmentDTO appointmentDTO) {
         System.out.println(appointmentDTO);
