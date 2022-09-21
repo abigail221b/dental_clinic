@@ -31,7 +31,7 @@ public class AppointmentController {
         return new ResponseEntity<Iterable<Appointment>>(appointmentRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/")
+    @RequestMapping(value = "/", params = {"date", "dentistID"})
     public ResponseEntity<List<Appointment>> getAppointmentsByDateAndDentistID(@RequestParam(name="date") String date, @RequestParam(name="dentistID") String dentistID) {
         LocalDate dateParam = LocalDate.parse(date);
         int dentistIDParam = Integer.parseInt(dentistID);
