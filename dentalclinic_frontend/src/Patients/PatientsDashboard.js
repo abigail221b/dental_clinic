@@ -5,6 +5,7 @@ function PatientsDashboard() {
         <>
             <Link to="all">All Patients</Link>
             <Link to="new">New Patient</Link>
+            <Link to="search">Search Patient</Link>
             <br />
             <Outlet />
         </>
