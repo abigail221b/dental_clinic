@@ -1,11 +1,15 @@
 package com.abigail221b.dentalclinic_backend.Patient;
 
+import java.util.List;
+import java.util.Map;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +32,18 @@ public class PatientController {
     @GetMapping
     public ResponseEntity<Iterable<Patient>> getAllPatients() {
         return new ResponseEntity<>(patientRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/")
+    public ResponseEntity<List<Patient>> getPatientsBySearchParams(@RequestParam Map<String, String> searchParams) {
+        
+        List<Patient> patients = patientRepository.findBySearchParams(
+                                                        searchParams.get("firstName"),
+                                                        searchParams.get("lastName"),
+                                                        searchParams.get("dateOfBirth"),
+                                                        searchParams.get("phoneNumber")
+                                                    );
+        return new ResponseEntity<List<Patient>>(patients, HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
