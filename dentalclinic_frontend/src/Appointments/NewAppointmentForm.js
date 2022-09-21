@@ -43,13 +43,10 @@ const NewAppointmentForm = () => {
 
     return (
         <form>
-            <select>
-                { dentists.map(dentist => <option value={dentist.id}
-                                                  onChange={(e) => setAppointment(appointment => { return {...appointment, dentistID: e.target.value }})} >
-                                            Dr. {dentist.firstName} {dentist.lastName}
-                                          </option>) }
+            <select onChange={(e) => setAppointment(appointment => { return {...appointment, dentistID: e.target.value }})} >
+                { dentists.map(dentist => <option value={dentist.id}> Dr. {dentist.firstName} {dentist.lastName} </option>) }
             </select>
-            <input type="date" 
+            <input type="date"
                    onChange={(e) => setAppointment(appointment => { 
                                                         return {
                                                             ...appointment, 
