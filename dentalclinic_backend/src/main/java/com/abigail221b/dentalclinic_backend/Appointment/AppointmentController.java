@@ -46,9 +46,7 @@ public class AppointmentController {
 
     @PostMapping
     public ResponseEntity<Appointment> addAppointment(@RequestBody AppointmentDTO appointmentDTO) {
-        System.out.println(appointmentDTO);
         Appointment appointment = modelMapper.map(appointmentDTO, Appointment.class);
-        System.out.println(appointment);
         appointmentRepository.save(appointment);
         return new ResponseEntity<Appointment>(appointment, HttpStatus.OK);
     }
