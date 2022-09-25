@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping(path = "/patient")
+@RequestMapping(path = "/patients")
 public class PatientController {
     
     @Autowired

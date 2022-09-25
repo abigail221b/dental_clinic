@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(path = "/appointment")
+@RequestMapping(path = "/appointments")
 @CrossOrigin(origins = "http://localhost:3000")
 public class AppointmentController {
     

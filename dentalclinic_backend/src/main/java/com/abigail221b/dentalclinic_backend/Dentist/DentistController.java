@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping(path = "/dentist")
+@RequestMapping(path = "/dentists")
 public class DentistController {
 
     @Autowired
