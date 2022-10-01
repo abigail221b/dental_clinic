@@ -6,6 +6,9 @@ import {
     Tr,
     Td,
     TableContainer,
+    Select,
+    Input,
+    Flex,
     Th
   } from '@chakra-ui/react'
 
@@ -40,12 +43,16 @@ const AppointmentDashboard = () => {
 
     return (
         <>
-            <input type="date" 
-                   onChange={(e) => setDate(e.target.value) }
-                   value={ date }/>
-            
-            <select value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
-                { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
+            <Flex gap="20px">
+                <Input type="date" 
+                    w="200px"
+                    onChange={(e) => setDate(e.target.value) }
+                    value={ date }/>
+                
+                <Select w="250px" value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
+                    { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
+                </Select>
+            </Flex>
             { appointments.length > 0?
                 <TableContainer>
                     <Table variant="striped" colorScheme="green">
@@ -60,7 +67,7 @@ const AppointmentDashboard = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-            { appointments.map(appointment => 
+                            { appointments.map(appointment => 
                                 <Tr>
                                     <Td>{appointment.id.patient.firstName}</Td>
                                     <Td>{appointment.id.patient.lastName}</Td>
