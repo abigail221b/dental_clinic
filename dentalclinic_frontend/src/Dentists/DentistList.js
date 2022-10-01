@@ -6,7 +6,7 @@ const DentistList = () => {
     const [dentists, setDentists] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/dentist")
+        fetch("http://localhost:8080/dentists")
         .then(res => res.json())
         .then(dentists => setDentists(dentists));
     }, []);

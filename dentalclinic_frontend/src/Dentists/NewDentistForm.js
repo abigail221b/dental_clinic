@@ -7,7 +7,7 @@ const NewDentistForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:8080/dentist", {
+        fetch("http://localhost:8080/dentists", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
