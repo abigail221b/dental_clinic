@@ -6,7 +6,7 @@ const PatientsList = () => {
     const [patients, setPatients] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/patient")
+        fetch("http://localhost:8080/patients")
         .then(res => res.json())
         .then(patients => setPatients(patients));
     }, []);

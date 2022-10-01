@@ -15,7 +15,7 @@ const SearchPatientForm = ({ setPatients }) => {
         let dateOfBirthQuery = dateOfBirth.value? `&dateOfBirth=${dateOfBirth}` : "";
         let phoneNumberQuery = phoneNumber.length > 0? `&phoneNumber=${phoneNumber}` : ""; 
 
-        fetch(`http://localhost:8080/patient/?${firstNameQuery}${lastNameQuery}${dateOfBirthQuery}${phoneNumberQuery}`)
+        fetch(`http://localhost:8080/patients/?${firstNameQuery}${lastNameQuery}${dateOfBirthQuery}${phoneNumberQuery}`)
         .then(res => res.json())
         .then(patients => setPatients(patients));
 

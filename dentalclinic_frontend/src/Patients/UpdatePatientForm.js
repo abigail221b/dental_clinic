@@ -7,7 +7,7 @@ const UpdatePatientForm = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:8080/patient/${ id }`)
+        fetch(`http://localhost:8080/patients/${ id }`)
         .then(res => res.json())
         .then(patient => setPatient(patient));
     }, [id]);
@@ -15,7 +15,7 @@ const UpdatePatientForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:8080/patient`, {
+        fetch(`http://localhost:8080/patients`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
