@@ -32,7 +32,7 @@ const NewAppointmentForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:8080/appointment", {
+        fetch("http://localhost:8080/appointments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

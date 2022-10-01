@@ -23,7 +23,7 @@ const AppointmentDashboard = () => {
 
     useEffect(() => {
         if(selectedDentistID !== null) {
-            fetch(`http://localhost:8080/appointment/?date=${ date }&dentistID=${ selectedDentistID }`)
+            fetch(`http://localhost:8080/appointments/?date=${ date }&dentistID=${ selectedDentistID }`)
             .then(res => res.json())
             .then(appointments => setAppointments(appointments));
         }

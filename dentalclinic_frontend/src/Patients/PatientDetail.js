@@ -13,7 +13,7 @@ const PatientDetail = () => {
     }, [id]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/appointment/?patientID=${ id }&after=${ new Date().toLocaleDateString("en-CA", {year: "numeric", month: "numeric", day: "numeric"}) }`)
+        fetch(`http://localhost:8080/appointments/?patientID=${ id }&after=${ new Date().toLocaleDateString("en-CA", {year: "numeric", month: "numeric", day: "numeric"}) }`)
         .then(res => res.json())
         .then(upcomingAppointments => setUpcomingAppointments(upcomingAppointments));
     }, []);
