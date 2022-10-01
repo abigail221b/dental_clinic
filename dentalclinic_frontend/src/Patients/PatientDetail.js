@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Heading, TableContainer, Table, Tbody, Thead, Tr, Th, Td, Input, Flex, Box, Text, Button } from "@chakra-ui/react";
 
 const PatientDetail = () => {
     const [patient, setPatient] = useState({});
@@ -20,16 +21,42 @@ const PatientDetail = () => {
 
     return (
         <>
-            <span>{patient.id} {patient.firstName} {patient.lastName} {patient.dateOfBirth} {patient.address} {patient.phoneNumber}</span>
-            <Link to={{ pathname: `/patient/${ id }/update-form`}}> Update </Link>
-            <Link to={{ pathname: `/patient/${ id }/appointment-form`}}> Book Appointment </Link>
+            <Heading>Patient Information</Heading>
+            <Flex gap="10px" pt="10px" pb="20px">
+                <Button colorScheme="teal"><Link to={{ pathname: `/patient/${ id }/update-form`}}> Update Patient </Link></Button>
+                <Button colorScheme="teal"><Link to={{ pathname: `/patient/${ id }/appointment-form`}}> Book Appointment </Link></Button>
+            </Flex>
 
-            <h2>Upcoming Appointments</h2>
-            { upcomingAppointments.map(appointment => <p>{appointment.id.patient.firstName} 
-                                                         {appointment.id.patient.lastName}  
-                                                         {appointment.id.date} 
-                                                         {appointment.id.startTime} 
-                                                         Dr. {appointment.dentist.lastName}</p>) }
+            <Box w="500px">
+                <Text fontSize="xl">First Name: { patient.firstName }</Text>
+                <Text fontSize="xl">Last Name: { patient.lastName }</Text>
+                <Text fontSize="xl">Date of Birth: { patient.dateOfBirth }</Text>
+                <Text fontSize="xl">Address: { patient.address }</Text>
+                <Text fontSize="xl">Phone: { patient.phoneNumber }</Text>
+            </Box>
+            <br />
+            <Heading as="h3" size="lg">Upcoming Appointments</Heading>
+            { upcomingAppointments.length > 0?
+                <TableContainer>
+                    <Table variant="striped">
+                        <Thead>
+                            <Tr>
+                                <Th>Date</Th>
+                                <Th>Time</Th>
+                                <Th>Dentist</Th>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            { upcomingAppointments.map(appointment => 
+                                    <Tr>
+                                        <Td>{appointment.id.date} </Td>
+                                        <Td>{appointment.id.startTime} </Td>
+                                        <Td>Dr. {appointment.dentist.lastName}</Td>
+                                    </Tr>) }
+                        </Tbody>
+                    </Table>
+                </TableContainer> : ""
+            }
         </>
     );
 }
