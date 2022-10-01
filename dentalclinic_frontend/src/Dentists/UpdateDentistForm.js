@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Heading, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 
 const UpdateDentistForm = () => {
 
@@ -25,12 +26,24 @@ const UpdateDentistForm = () => {
     }
 
     return (
-        <form>
-            <input type="text" value={dentist.firstName} onChange={(e) => setDentist(dentist => { return {...dentist, firstName: e.target.value }})} />
-            <input type="text" value={dentist.lastName} onChange={(e) => setDentist(dentist => {return {...dentist, lastName: e.target.value }})}/>
-            <input type="text" value={dentist.phoneNumber} onChange={(e) => setDentist(dentist => {return {...dentist, phoneNumber: e.target.value }})}/>
-            <button onClick={ (e) => handleSubmit(e) }>Update</button>
-        </form>
+        <div>
+            <Heading>Update Dentist</Heading>
+            <form style={{ width: "500px" }}>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">First Name</FormLabel>
+                    <Input type="text" value={dentist.firstName} onChange={(e) => setDentist(dentist => { return {...dentist, firstName: e.target.value }})} />
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Last Name</FormLabel>
+                    <Input type="text" value={dentist.lastName} onChange={(e) => setDentist(dentist => {return {...dentist, lastName: e.target.value }})}/>
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Phone number</FormLabel>
+                    <Input type="text" value={dentist.phoneNumber} onChange={(e) => setDentist(dentist => {return {...dentist, phoneNumber: e.target.value }})}/>
+                </FormControl>
+                <Button colorScheme="teal" onClick={ (e) => handleSubmit(e) }>Update</Button>
+            </form>
+        </div>
     );
 }
 
