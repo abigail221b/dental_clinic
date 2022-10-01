@@ -1,4 +1,18 @@
 import { useState, useEffect } from "react";
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Td,
+    TableContainer,
+    Select,
+    Input,
+    Flex,
+    Th,
+    Container,
+    Center
+  } from '@chakra-ui/react'
 
 const AppointmentDashboard = () => {
 
@@ -31,20 +45,48 @@ const AppointmentDashboard = () => {
 
     return (
         <>
-            <input type="date" 
-                   onChange={(e) => setDate(e.target.value) }
-                   value={ date }/>
-            
-            <select value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
-                { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
-            </select>
-
-            { appointments.map(appointment => 
-                    <p>{appointment.id.patient.firstName} 
-                    {appointment.id.patient.lastName}  
-                    {appointment.id.date} 
-                    {appointment.id.startTime} 
-                    Dr. {appointment.dentist.lastName}</p>) }
+            <Center>
+                <Flex gap="20px" h="50px" p="10px">
+                    <Input type="date" 
+                        w="200px"
+                        onChange={(e) => setDate(e.target.value) }
+                        value={ date }/>
+                    
+                    <Select w="250px" value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
+                        { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
+                    </Select>
+                </Flex>
+            </Center>
+                <Container  maxWidth="container.xl">
+                    { appointments.length > 0?
+                        <TableContainer>
+                            <Table variant="striped" colorScheme="green">
+                                <Thead>
+                                    <Tr>
+                                        <Th>Patient First Name</Th>
+                                        <Th>Patient Last Name</Th>
+                                        <Th>Date</Th>
+                                        <Th>Start Time</Th>
+                                        <Th>Dentist</Th>
+                                        <Th>Actions</Th>
+                                    </Tr>
+                                </Thead>
+                                <Tbody>
+                                    { appointments.map(appointment => 
+                                        <Tr>
+                                            <Td>{appointment.id.patient.firstName}</Td>
+                                            <Td>{appointment.id.patient.lastName}</Td>
+                                            <Td>{appointment.id.date}</Td>
+                                            <Td>{appointment.id.startTime}</Td>
+                                            <Td>Dr. {appointment.dentist.lastName}</Td>
+                                            <Td>Cancel</Td>
+                                        </Tr>
+                                    )}
+                                </Tbody>
+                            </Table>
+                        </TableContainer> : null
+                    }
+                </Container>
         </>
     );
 }

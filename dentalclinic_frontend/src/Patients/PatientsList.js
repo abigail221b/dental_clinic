@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
 import PatientRow from "./PatientRow";
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    TableContainer
+  } from '@chakra-ui/react'
 
 const PatientsList = () => {
 
@@ -12,14 +20,30 @@ const PatientsList = () => {
     }, []);
 
     return (
-        <>
-            { patients.map(patient => <PatientRow id={patient.id} 
-                                                  firstName={patient.firstName} 
-                                                  lastName={patient.lastName} 
-                                                  dateOfBirth={patient.dateOfBirth} 
-                                                  address={patient.address} 
-                                                  phoneNumber={patient.phoneNumber} />) }
-        </>
+        <TableContainer>
+            <Table variant="striped" colorScheme="green">
+                <Thead>
+                    <Tr>
+                        <Th>First Name</Th>
+                        <Th>Last Name</Th>
+                        <Th>Date of Birth</Th>
+                        <Th>Address</Th>
+                        <Th>Phone Number</Th>
+                        <Th>Actions</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
+                    { patients.map(patient => <PatientRow id={patient.id} 
+                                                        firstName={patient.firstName} 
+                                                        lastName={patient.lastName} 
+                                                        dateOfBirth={patient.dateOfBirth} 
+                                                        address={patient.address} 
+                                                        phoneNumber={patient.phoneNumber} />) }
+                </Tbody>
+                
+            </Table>
+            
+        </TableContainer>
     );
 }
 

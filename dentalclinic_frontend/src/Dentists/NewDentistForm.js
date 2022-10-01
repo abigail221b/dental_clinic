@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Input, Button, Heading, FormControl, FormLabel } from "@chakra-ui/react";
 
 const NewDentistForm = () => {
 
@@ -17,12 +18,24 @@ const NewDentistForm = () => {
     }
 
     return (
-        <form>
-            <input type="text" onChange={(e) => setDentist(dentist => { return {...dentist, firstName: e.target.value }})} />
-            <input type="text" onChange={(e) => setDentist(dentist => {return {...dentist, lastName: e.target.value }})}/>
-            <input type="text" onChange={(e) => setDentist(dentist => {return {...dentist, phoneNumber: e.target.value }})}/>
-            <button onClick={ (e) => handleSubmit(e) }>Submit</button>
-        </form>
+        <div>
+            <Heading>New Dentist</Heading>
+            <form style={{ width: "500px"}}>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">First Name</FormLabel>
+                    <Input type="text" onChange={(e) => setDentist(dentist => { return {...dentist, firstName: e.target.value }})} />
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Last Name</FormLabel>
+                    <Input type="text" onChange={(e) => setDentist(dentist => {return {...dentist, lastName: e.target.value }})}/>
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Phone number</FormLabel>
+                    <Input type="text" onChange={(e) => setDentist(dentist => {return {...dentist, phoneNumber: e.target.value }})}/>
+                </FormControl>
+                <Button colorScheme="teal" onClick={ (e) => handleSubmit(e) }>Submit</Button>
+            </form>
+        </div>
     );
 }
 
