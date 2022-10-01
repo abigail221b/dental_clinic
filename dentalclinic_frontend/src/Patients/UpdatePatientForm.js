@@ -28,7 +28,7 @@ const UpdatePatientForm = () => {
     return (
         <>
             <Heading>Update Patient</Heading>
-            <form>
+            <form style={{ width: "500px" }}>
                 <FormControl pb="20px">
                     <FormLabel fontWeight="bold">First Name</FormLabel>
                     <Input type="text" value={patient.firstName} onChange={(e) => setPatient(patient => { return {...patient, firstName: e.target.value }}) } />
