@@ -15,7 +15,7 @@ const SearchPatient = () => {
     const [patients, setPatients] = useState([]);
 
     return (
-        <>
+        <div>
             <SearchPatientForm setPatients={setPatients}/>
 
             { patients.length > 0?
@@ -42,7 +42,7 @@ const SearchPatient = () => {
                     </Table>
                 </TableContainer> : ""
             }   
-        </>
+        </div>
     );
 }
 

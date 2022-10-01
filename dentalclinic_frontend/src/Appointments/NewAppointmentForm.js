@@ -43,7 +43,7 @@ const NewAppointmentForm = () => {
     }
 
     return (
-        <>
+        <div>
             <Heading>New Appointment</Heading>
             <form style={{ width: "500px"}}>
                 <FormControl pb="20px">
@@ -89,7 +89,7 @@ const NewAppointmentForm = () => {
                 
                 <Button colorScheme="teal" onClick={(e) => handleSubmit(e) }>Submit</Button>
             </form>
-        </>
+        </div>
     );
 
 }

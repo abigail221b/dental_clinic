@@ -23,7 +23,7 @@ const SearchPatientForm = ({ setPatients }) => {
     }
 
     return (
-        <>
+        <div>
             <Heading>Search Patient</Heading>
             <p>Fill in at least one field.</p>
                 <form style={{ width: "500px" }}>
@@ -46,7 +46,7 @@ const SearchPatientForm = ({ setPatients }) => {
                     
                     <Button colorScheme="teal" onClick={(e) => handleSubmit(e)}>Search</Button>
                 </form>
-        </>
+        </div>
     );
 }
 

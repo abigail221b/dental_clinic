@@ -26,7 +26,7 @@ const UpdatePatientForm = () => {
     }
 
     return (
-        <>
+        <div>
             <Heading>Update Patient</Heading>
             <form style={{ width: "500px" }}>
                 <FormControl pb="20px">
@@ -51,7 +51,7 @@ const UpdatePatientForm = () => {
                 </FormControl>
                 <Button colorScheme="teal" onClick={ (e) => handleSubmit(e) }>Submit</Button>
             </form>
-        </> 
+        </div> 
     );
 }
 

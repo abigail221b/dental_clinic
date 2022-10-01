@@ -20,7 +20,7 @@ const PatientDetail = () => {
     }, []);
 
     return (
-        <>
+        <div>
             <Heading>Patient Information</Heading>
             <Flex gap="10px" pt="10px" pb="20px">
                 <Button colorScheme="teal"><Link to={{ pathname: `/patient/${ id }/update-form`}}> Update Patient </Link></Button>
@@ -57,7 +57,7 @@ const PatientDetail = () => {
                     </Table>
                 </TableContainer> : ""
             }
-        </>
+        </div>
     );
 }
 
