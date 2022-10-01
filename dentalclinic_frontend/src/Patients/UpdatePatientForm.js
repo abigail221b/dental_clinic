@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Button, FormControl, FormLabel, Heading, Input } from "@chakra-ui/react"
 
 const UpdatePatientForm = () => {
 
@@ -25,14 +26,32 @@ const UpdatePatientForm = () => {
     }
 
     return (
-        <form>
-            <input type="text" value={patient.firstName} onChange={(e) => setPatient(patient => { return {...patient, firstName: e.target.value }}) } />
-            <input type="text" value={patient.lastName} onChange={(e) => setPatient(patient => { return {...patient, lastName: e.target.value }}) } />
-            <input type="date" value={patient.dateOfBirth} onChange={(e) => setPatient(patient => { return {...patient, dateOfBirth: e.target.value }}) } />
-            <input type="text" value={patient.address} onChange={(e) => setPatient(patient => { return {...patient, address: e.target.value }}) } />
-            <input type="text" value={patient.phoneNumber} onChange={(e) => setPatient(patient => { return {...patient, phoneNumber: e.target.value }}) } />
-            <button onClick={ (e) => handleSubmit(e) }>Submit</button>
-        </form>
+        <>
+            <Heading>Update Patient</Heading>
+            <form>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">First Name</FormLabel>
+                    <Input type="text" value={patient.firstName} onChange={(e) => setPatient(patient => { return {...patient, firstName: e.target.value }}) } />
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Last Name</FormLabel>
+                    <Input type="text" value={patient.lastName} onChange={(e) => setPatient(patient => { return {...patient, lastName: e.target.value }}) } />
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Date of Birth</FormLabel>
+                    <Input type="date" value={patient.dateOfBirth} onChange={(e) => setPatient(patient => { return {...patient, dateOfBirth: e.target.value }}) } />
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Address</FormLabel>
+                    <Input type="text" value={patient.address} onChange={(e) => setPatient(patient => { return {...patient, address: e.target.value }}) } />
+                </FormControl>
+                <FormControl pb="20px">
+                    <FormLabel fontWeight="bold">Phone number</FormLabel>
+                    <Input type="text" value={patient.phoneNumber} onChange={(e) => setPatient(patient => { return {...patient, phoneNumber: e.target.value }}) } />
+                </FormControl>
+                <Button colorScheme="teal" onClick={ (e) => handleSubmit(e) }>Submit</Button>
+            </form>
+        </> 
     );
 }
 
