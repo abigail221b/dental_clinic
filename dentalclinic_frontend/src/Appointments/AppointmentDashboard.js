@@ -1,4 +1,13 @@
 import { useState, useEffect } from "react";
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Td,
+    TableContainer,
+    Th
+  } from '@chakra-ui/react'
 
 const AppointmentDashboard = () => {
 
@@ -37,14 +46,34 @@ const AppointmentDashboard = () => {
             
             <select value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
                 { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
-            </select>
-
+            { appointments.length > 0?
+                <TableContainer>
+                    <Table variant="striped" colorScheme="green">
+                        <Thead>
+                            <Tr>
+                                <Th>Patient First Name</Th>
+                                <Th>Patient Last Name</Th>
+                                <Th>Date</Th>
+                                <Th>Start Time</Th>
+                                <Th>Dentist</Th>
+                                <Th>Actions</Th>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
             { appointments.map(appointment => 
-                    <p>{appointment.id.patient.firstName} 
-                    {appointment.id.patient.lastName}  
-                    {appointment.id.date} 
-                    {appointment.id.startTime} 
-                    Dr. {appointment.dentist.lastName}</p>) }
+                                <Tr>
+                                    <Td>{appointment.id.patient.firstName}</Td>
+                                    <Td>{appointment.id.patient.lastName}</Td>
+                                    <Td>{appointment.id.date}</Td>
+                                    <Td>{appointment.id.startTime}</Td>
+                                    <Td>Dr. {appointment.dentist.lastName}</Td>
+                                    <Td>Cancel</Td>
+                                </Tr>
+                            )}
+                        </Tbody>
+                    </Table>
+                </TableContainer> : <p>No Appointments</p>
+            }
         </>
     );
 }
