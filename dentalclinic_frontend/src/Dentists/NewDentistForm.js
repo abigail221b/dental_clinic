@@ -18,7 +18,7 @@ const NewDentistForm = () => {
     }
 
     return (
-        <>
+        <div>
             <Heading>New Dentist</Heading>
             <form style={{ width: "500px"}}>
                 <FormControl pb="20px">
@@ -35,7 +35,7 @@ const NewDentistForm = () => {
                 </FormControl>
                 <Button colorScheme="teal" onClick={ (e) => handleSubmit(e) }>Submit</Button>
             </form>
-        </>
+        </div>
     );
 }
 
