@@ -44,6 +44,9 @@ const PatientDetail = () => {
                                 <Th>Date</Th>
                                 <Th>Time</Th>
                                 <Th>Dentist</Th>
+                                <Th>Duration</Th>
+                                <Th>Description</Th>
+                                <Th>Actions</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
@@ -52,6 +55,9 @@ const PatientDetail = () => {
                                         <Td>{appointment.id.date} </Td>
                                         <Td>{appointment.id.startTime} </Td>
                                         <Td>Dr. {appointment.dentist.lastName}</Td>
+                                        <Td>{appointment.duration} mins</Td>
+                                        <Td>{appointment.description}</Td>
+                                        <Td>Update, Cancel</Td>
                                     </Tr>) }
                         </Tbody>
                     </Table>
