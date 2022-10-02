@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,6 +50,13 @@ public class AppointmentController {
         Appointment appointment = modelMapper.map(appointmentDTO, Appointment.class);
         appointmentRepository.save(appointment);
         return new ResponseEntity<Appointment>(appointment, HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteAppointment(@RequestBody AppointmentIDDTO appointmentIDDTO) {
+        AppointmentID appointmentID = modelMapper.map(appointmentIDDTO, AppointmentID.class);
+        appointmentRepository.deleteById(appointmentID);
+        return new ResponseEntity<String>("Appointment Deleted", HttpStatus.OK);
     }
 
 }
