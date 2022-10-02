@@ -10,6 +10,11 @@ function PatientsDashboard() {
                 <Link to="search"><Center h="50px" w="115px"><Text as="u">Search Patients</Text></Center></Link>
             </Center>
             <br />
+            <Container maxWidth="container.xl">
+                <Center>
+                    <Outlet />
+                </Center>
+            </Container>
         </div>
     );
 }

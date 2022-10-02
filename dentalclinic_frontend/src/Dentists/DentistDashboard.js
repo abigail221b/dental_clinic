@@ -9,6 +9,11 @@ const DentistDashboard = () => {
                 <Link to="new"><Center h="50px" w="115px"><Text as="u">New Dentist</Text></Center></Link>
             </Center>
             <br />
+            <Container maxWidth="container.xl">
+                <Center>
+                    <Outlet />
+                </Center>
+            </Container>
         </div>
     );
 }

@@ -27,7 +27,9 @@ function App() {
 				</Link>
 			</Center>
 			<hr />
-			<Outlet />
+			<Center>
+				<Outlet />
+			</Center>
 		</ChakraProvider>
 	);
 }
