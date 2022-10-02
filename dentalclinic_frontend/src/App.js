@@ -11,7 +11,7 @@ const dashboard = {
 
 function App() {
 
-	const [selectedDashboard, setSelectedDashboard] = useState(dashboard.PATIENTS);
+	const [selectedDashboard, setSelectedDashboard] = useState(null);
 
 	return (
 		<ChakraProvider>
