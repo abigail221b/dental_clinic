@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Tr, Td } from '@chakra-ui/react'
+import { Tr, Td, Flex, Button } from '@chakra-ui/react'
 
 const DentistRow = ({id, firstName, lastName, phoneNumber}) => {
     return (
@@ -8,8 +8,14 @@ const DentistRow = ({id, firstName, lastName, phoneNumber}) => {
             <Td>{ lastName }</Td>
             <Td>{ phoneNumber }</Td>
             <Td>
-                <Link to={{ pathname: `/dentist/${id}` }}>View</Link>
-                <Link to={{ pathname: `/dentist/${id}/update-form` }}>Edit</Link>
+                <Flex gap="5px">
+                    <Link to={{ pathname: `/dentist/${id}` }}>
+                        <Button colorScheme="teal" size="xs">View</Button>
+                    </Link>
+                    <Link to={{ pathname: `/dentist/${id}/update-form` }}>
+                        <Button colorScheme="teal" size="xs">Update</Button>
+                    </Link>
+                </Flex>
             </Td>
         </Tr>
     );

@@ -11,7 +11,8 @@ import {
     Flex,
     Th,
     Container,
-    Center
+    Center,
+    Button
   } from '@chakra-ui/react'
 
 const AppointmentDashboard = () => {
@@ -79,7 +80,12 @@ const AppointmentDashboard = () => {
                                             <Td>{appointment.id.date}</Td>
                                             <Td>{appointment.id.startTime}</Td>
                                             <Td>Dr. {appointment.dentist.lastName}</Td>
-                                            <Td>Cancel</Td>
+                                            <Td>
+                                                <Flex gap="5px">
+                                                    <Button colorScheme="teal" size="xs">Update</Button>
+                                                    <Button colorScheme="teal" size="xs">Cancel</Button>
+                                                </Flex>
+                                            </Td>
                                         </Tr>
                                     )}
                                 </Tbody>
