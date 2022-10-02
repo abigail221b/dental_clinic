@@ -44,7 +44,7 @@ const AppointmentDashboard = () => {
     }, [date, selectedDentistID]);
 
     return (
-        <>
+        <div>
             <Center>
                 <Flex gap="20px" h="50px" p="10px">
                     <Input type="date" 
@@ -87,7 +87,7 @@ const AppointmentDashboard = () => {
                         </TableContainer> : null
                     }
                 </Container>
-        </>
+        </div>
     );
 }
 
