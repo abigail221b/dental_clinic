@@ -57,7 +57,12 @@ const PatientDetail = () => {
                                         <Td>Dr. {appointment.dentist.lastName}</Td>
                                         <Td>{appointment.duration} mins</Td>
                                         <Td>{appointment.description}</Td>
-                                        <Td>Update, Cancel</Td>
+                                        <Td>
+                                            <Flex gap="5px">
+                                                <Button colorScheme="teal" size="xs">Update</Button>
+                                                <Button colorScheme="teal" size="xs">Cancel</Button>
+                                            </Flex>
+                                        </Td>
                                     </Tr>) }
                         </Tbody>
                     </Table>
