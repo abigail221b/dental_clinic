@@ -35,7 +35,8 @@ const DentistList = () => {
                     { dentists.map(dentist => <DentistRow id={dentist.id} 
                                                     firstName={dentist.firstName}
                                                     lastName={dentist.lastName}
-                                                    phoneNumber={dentist.phoneNumber} />)}
+                                                    phoneNumber={dentist.phoneNumber} 
+                                                    setDentists={setDentists}/>)}
                 </Tbody>
             </Table>
         </TableContainer>
