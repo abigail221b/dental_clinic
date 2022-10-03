@@ -1,7 +1,18 @@
 import { Link, Outlet } from "react-router-dom";
 import { Tr, Td, Flex, Button } from '@chakra-ui/react'
 
-const PatientRow = ({ id, firstName, lastName, dateOfBirth, address, phoneNumber}) => {
+const PatientRow = ({ id, firstName, lastName, dateOfBirth, address, phoneNumber, setPatients}) => {
+
+    const handleDelete = () => {
+        fetch(`http://localhost:8080/patients/${ id }`, {
+            method: "DELETE"
+        })
+        .then(res => {
+            if(res.status === 200)
+                setPatients(patients => patients.filter( patient => patient.id !== id ));
+        });
+    }
+
     return (
         <Tr>
             <Td>{ firstName }</Td>
@@ -20,6 +31,7 @@ const PatientRow = ({ id, firstName, lastName, dateOfBirth, address, phoneNumber
                     <Link to={{ pathname: `/patient/${ id }/appointment-form`}}>
                         <Button colorScheme="teal" size="xs">Book Appointment</Button>
                     </Link>
+                    <Button colorScheme="teal" size="xs" onClick={() => handleDelete()}>Delete</Button>
                 </Flex>
             </Td>
         </Tr>
