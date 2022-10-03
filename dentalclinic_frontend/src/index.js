@@ -15,7 +15,6 @@ import UpdateDentistForm from './Dentists/UpdateDentistForm';
 import DentistDetail from './Dentists/DentistDetail';
 import AppointmentDashboard from './Appointments/AppointmentDashboard';
 import NewAppointmentForm from "./Appointments/NewAppointmentForm";
-import SearchPatientForm from "./Patients/SearchPatientForm";
 import SearchPatient from './Patients/SearchPatient';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
