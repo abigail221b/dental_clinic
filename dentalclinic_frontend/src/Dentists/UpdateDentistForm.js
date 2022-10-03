@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Heading, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 
 const UpdateDentistForm = () => {
 
     const [dentist, setDentist] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:8080/dentists/${ id }`)
@@ -22,7 +23,8 @@ const UpdateDentistForm = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(dentist)
-        });
+        })
+        .then(() => navigate(`/dentist/${ id }`));
     }
 
     return (
