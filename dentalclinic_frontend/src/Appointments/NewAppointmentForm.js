@@ -1,11 +1,12 @@
 import { Input, Select, Button, Heading, FormControl, FormLabel, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NewAppointmentForm = () => {
 
     const [appointment, setAppointment] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
     const [dentists, setDentists] = useState([]);
 
     useEffect(() => {
@@ -39,7 +40,8 @@ const NewAppointmentForm = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(appointment)
-        });
+        })
+        .then(() => navigate(`/patient/${ id }`, { replace: true }));
     }
 
     return (

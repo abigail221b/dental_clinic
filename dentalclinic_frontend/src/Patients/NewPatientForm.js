@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Input, Button, FormLabel, FormControl, Heading } from "@chakra-ui/react";
 
 const NewPatientForm = () => {
 
     const [patient, setPatient] = useState({});
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +16,9 @@ const NewPatientForm = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(patient)
-        });
+        })
+        .then(res => res.json())
+        .then(patient => navigate(`/patient/${ patient.id }`, { replace: true }));
     }
 
     return (
