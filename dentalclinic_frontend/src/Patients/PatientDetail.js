@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Heading, TableContainer, Table, Tbody, Thead, Tr, Th, Td, Input, Flex, Box, Text, Button } from "@chakra-ui/react";
+import AppointmentRow from "../Appointments/AppointmentRow";
 
 const PatientDetail = () => {
     const [patient, setPatient] = useState({});
@@ -50,20 +51,15 @@ const PatientDetail = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            { upcomingAppointments.map(appointment => 
-                                    <Tr>
-                                        <Td>{appointment.id.date} </Td>
-                                        <Td>{appointment.id.startTime} </Td>
-                                        <Td>Dr. {appointment.dentist.lastName}</Td>
-                                        <Td>{appointment.duration} mins</Td>
-                                        <Td>{appointment.description}</Td>
-                                        <Td>
-                                            <Flex gap="5px">
-                                                <Button colorScheme="teal" size="xs">Update</Button>
-                                                <Button colorScheme="teal" size="xs">Cancel</Button>
-                                            </Flex>
-                                        </Td>
-                                    </Tr>) }
+                            { upcomingAppointments.map(appointment => <AppointmentRow 
+                                                                            patientFN={ null }
+                                                                            patientLN={ null }
+                                                                            date={appointment.id.date}
+                                                                            startTime={appointment.id.startTime}
+                                                                            dentistFN={appointment.dentist.firstName}
+                                                                            dentistLN={appointment.dentist.lastName}
+                                                                            duration={appointment.duration}
+                                                                            description={appointment.description}/>) }
                         </Tbody>
                     </Table>
                 </TableContainer> : ""

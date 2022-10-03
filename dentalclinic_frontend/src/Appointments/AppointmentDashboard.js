@@ -14,6 +14,7 @@ import {
     Center,
     Button
   } from '@chakra-ui/react'
+import AppointmentRow from "./AppointmentRow";
 
 const AppointmentDashboard = () => {
 
@@ -68,26 +69,21 @@ const AppointmentDashboard = () => {
                                         <Th>Patient Last Name</Th>
                                         <Th>Date</Th>
                                         <Th>Start Time</Th>
-                                        <Th>Dentist</Th>
+                                        <Th>Duration</Th>
+                                        <Th>Description</Th>
                                         <Th>Actions</Th>
                                     </Tr>
                                 </Thead>
                                 <Tbody>
-                                    { appointments.map(appointment => 
-                                        <Tr>
-                                            <Td>{appointment.id.patient.firstName}</Td>
-                                            <Td>{appointment.id.patient.lastName}</Td>
-                                            <Td>{appointment.id.date}</Td>
-                                            <Td>{appointment.id.startTime}</Td>
-                                            <Td>Dr. {appointment.dentist.lastName}</Td>
-                                            <Td>
-                                                <Flex gap="5px">
-                                                    <Button colorScheme="teal" size="xs">Update</Button>
-                                                    <Button colorScheme="teal" size="xs">Cancel</Button>
-                                                </Flex>
-                                            </Td>
-                                        </Tr>
-                                    )}
+                                    { appointments.map(appointment => <AppointmentRow 
+                                                                            patientFN={appointment.id.patient.firstName}
+                                                                            patientLN={appointment.id.patient.lastName}
+                                                                            date={appointment.id.date}
+                                                                            startTime={appointment.id.startTime}
+                                                                            dentistFN={ null }
+                                                                            dentistLN={ null }
+                                                                            duration={appointment.duration}
+                                                                            description={appointment.description}/>) }
                                 </Tbody>
                             </Table>
                         </TableContainer> : null
