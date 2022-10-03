@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.abigail221b.dentalclinic_backend.Dentist.Dentist;
 
 import lombok.Data;
@@ -16,6 +19,7 @@ public class Appointment {
     private AppointmentID id;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "dentistID")
     private Dentist dentist;
     private int duration;
