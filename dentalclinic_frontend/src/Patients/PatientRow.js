@@ -10,7 +10,10 @@ const PatientRow = ({ id, firstName, lastName, dateOfBirth, address, phoneNumber
         .then(res => {
             if(res.status === 200)
                 setPatients(patients => patients.filter( patient => patient.id !== id ));
-        });
+            
+            return res.text();
+        })
+        .then(res => console.log(res));
     }
 
     return (
