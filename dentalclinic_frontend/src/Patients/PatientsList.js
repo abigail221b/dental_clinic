@@ -38,7 +38,8 @@ const PatientsList = () => {
                                                         lastName={patient.lastName} 
                                                         dateOfBirth={patient.dateOfBirth} 
                                                         address={patient.address} 
-                                                        phoneNumber={patient.phoneNumber} />) }
+                                                        phoneNumber={patient.phoneNumber} 
+                                                        setPatients={setPatients}/>) }
                 </Tbody>
                 
             </Table>
