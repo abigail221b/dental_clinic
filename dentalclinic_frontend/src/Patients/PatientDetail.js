@@ -52,6 +52,7 @@ const PatientDetail = () => {
                         </Thead>
                         <Tbody>
                             { upcomingAppointments.map(appointment => <AppointmentRow 
+                                                                            patientID={ id }
                                                                             patientFN={ null }
                                                                             patientLN={ null }
                                                                             date={appointment.id.date}
@@ -59,7 +60,8 @@ const PatientDetail = () => {
                                                                             dentistFN={appointment.dentist.firstName}
                                                                             dentistLN={appointment.dentist.lastName}
                                                                             duration={appointment.duration}
-                                                                            description={appointment.description}/>) }
+                                                                            description={appointment.description} 
+                                                                            setAppointments={setUpcomingAppointments}/>) }
                         </Tbody>
                     </Table>
                 </TableContainer> : ""

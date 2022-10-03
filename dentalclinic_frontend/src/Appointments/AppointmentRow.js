@@ -1,6 +1,7 @@
 import { Tr, Td, Flex, Button } from "@chakra-ui/react";
 
-const AppointmentRow = ({ patientFN, patientLN, date, startTime, dentistFN, dentistLN, duration, description }) => {
+const AppointmentRow = ({ patientID, patientFN, patientLN, date, startTime, dentistFN, dentistLN, duration, description, setAppointments }) => {
+    
     return (
         <Tr>
             { patientFN !== null || patientLN !== null? 

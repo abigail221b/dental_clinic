@@ -76,6 +76,7 @@ const AppointmentDashboard = () => {
                                 </Thead>
                                 <Tbody>
                                     { appointments.map(appointment => <AppointmentRow 
+                                                                            patientID={appointment.id.patient.id}
                                                                             patientFN={appointment.id.patient.firstName}
                                                                             patientLN={appointment.id.patient.lastName}
                                                                             date={appointment.id.date}
@@ -83,7 +84,8 @@ const AppointmentDashboard = () => {
                                                                             dentistFN={ null }
                                                                             dentistLN={ null }
                                                                             duration={appointment.duration}
-                                                                            description={appointment.description}/>) }
+                                                                            description={appointment.description}
+                                                                            setAppointments={setAppointments} />) }
                                 </Tbody>
                             </Table>
                         </TableContainer> : null
