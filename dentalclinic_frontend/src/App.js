@@ -9,7 +9,7 @@ function App() {
 		<ChakraProvider>
 		<Flex width="100%">
 			<Box w="275px" h="100vh" bg="teal" color="white">
-				<Box><Heading h>Dental Clinic</Heading></Box>
+			<Center h="75px"><Heading h>Dental Clinic</Heading></Center>
 				<Accordion allowMultiple="true">
 					<AccordionItem>
 						<h2>
