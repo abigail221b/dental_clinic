@@ -13,15 +13,6 @@ function App() {
 				<Accordion allowMultiple="true">
 					<AccordionItem>
 						<h2>
-							<Link to="/dashboard">
-								<AccordionButton bg="teal" border="none" color="white">
-									Dashboard
-								</AccordionButton>
-							</Link>
-						</h2>
-					</AccordionItem>
-					<AccordionItem>
-						<h2>
 							<Link to="/appointments">
 								<AccordionButton border="none"  bg="teal"  color="white">
 									Appointments
