@@ -24,7 +24,7 @@ const UpdatePatientForm = () => {
             },
             body: JSON.stringify(patient)
         })
-        .then(() => navigate(`/patient/${ id }`, { replace: true }));
+        .then(() => navigate(`/patients/${ id }`, { replace: true }));
     }
 
     return (

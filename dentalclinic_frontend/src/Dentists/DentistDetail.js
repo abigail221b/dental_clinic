@@ -18,7 +18,7 @@ const DentistDetail = () => {
         <div>
             <Heading>Dentist Information</Heading>
             <Flex gap="10px" pt="10px" pb="20px">
-                <Link to={{ pathname: `/dentist/${dentist.id}/update-form` }}><Button colorScheme="teal">Edit</Button></Link>
+                <Link to={{ pathname: `/dentists/${dentist.id}/update-form` }}><Button colorScheme="teal">Edit</Button></Link>
             </Flex>
 
             <Box w="500px">

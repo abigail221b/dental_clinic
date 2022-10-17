@@ -41,7 +41,7 @@ const NewAppointmentForm = () => {
             },
             body: JSON.stringify(appointment)
         })
-        .then(() => navigate(`/patient/${ id }`, { replace: true }));
+        .then(() => navigate(`/patients/${ id }`, { replace: true }));
     }
 
     return (

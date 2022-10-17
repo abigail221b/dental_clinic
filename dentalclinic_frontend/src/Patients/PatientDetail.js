@@ -24,8 +24,8 @@ const PatientDetail = () => {
         <div>
             <Heading>Patient Information</Heading>
             <Flex gap="10px" pt="10px" pb="20px">
-                <Link to={{ pathname: `/patient/${ id }/update-form`}}><Button colorScheme="teal">Update Patient</Button></Link>
-                <Link to={{ pathname: `/patient/${ id }/appointment-form`}}><Button colorScheme="teal">Book Appointment</Button></Link>
+                <Link to={{ pathname: `/patients/${ id }/update-form`}}><Button colorScheme="teal">Update Patient</Button></Link>
+                <Link to={{ pathname: `/patients/${ id }/appointment-form`}}><Button colorScheme="teal">Book Appointment</Button></Link>
             </Flex>
 
             <Box w="500px">

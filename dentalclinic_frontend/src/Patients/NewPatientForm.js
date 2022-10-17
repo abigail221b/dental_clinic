@@ -18,7 +18,7 @@ const NewPatientForm = () => {
             body: JSON.stringify(patient)
         })
         .then(res => res.json())
-        .then(patient => navigate(`/patient/${ patient.id }`, { replace: true }));
+        .then(patient => navigate(`/patients/${ patient.id }`, { replace: true }));
     }
 
     return (

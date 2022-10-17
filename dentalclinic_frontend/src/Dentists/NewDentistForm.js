@@ -18,7 +18,7 @@ const NewDentistForm = () => {
             body: JSON.stringify(dentist)
         })
         .then(res => res.json())
-        .then(dentist => navigate(`/dentist/${ dentist.id }`));
+        .then(dentist => navigate(`/dentists/${ dentist.id }`));
     }
 
     return (

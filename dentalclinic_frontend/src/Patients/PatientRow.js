@@ -25,13 +25,13 @@ const PatientRow = ({ id, firstName, lastName, dateOfBirth, address, phoneNumber
             <Td>{ phoneNumber }</Td>
             <Td>
                 <Flex gap="5px">
-                    <Link to={{ pathname: `/patient/${ id }`}}>
+                    <Link to={{ pathname: `/patients/${ id }`}}>
                         <Button colorScheme="teal" size="xs">View</Button>
                     </Link>
-                    <Link to={{ pathname: `/patient/${ id }/update-form`}}>
+                    <Link to={{ pathname: `/patients/${ id }/update-form`}}>
                         <Button colorScheme="teal" size="xs">Update</Button>
                     </Link>
-                    <Link to={{ pathname: `/patient/${ id }/appointment-form`}}>
+                    <Link to={{ pathname: `/patients/${ id }/appointment-form`}}>
                         <Button colorScheme="teal" size="xs">Book Appointment</Button>
                     </Link>
                     <Button colorScheme="teal" size="xs" onClick={() => handleDelete()}>Delete</Button>

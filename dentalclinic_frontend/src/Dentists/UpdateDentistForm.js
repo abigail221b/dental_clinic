@@ -24,7 +24,7 @@ const UpdateDentistForm = () => {
             },
             body: JSON.stringify(dentist)
         })
-        .then(() => navigate(`/dentist/${ id }`));
+        .then(() => navigate(`/dentists/${ id }`));
     }
 
     return (
