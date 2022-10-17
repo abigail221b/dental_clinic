@@ -47,50 +47,48 @@ const AppointmentDashboard = () => {
 
     return (
         <div>
-            <Center>
-                <Flex gap="20px" h="50px" p="10px">
-                    <Input type="date" 
-                        w="200px"
-                        onChange={(e) => setDate(e.target.value) }
-                        value={ date }/>
-                    
-                    <Select w="250px" value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
-                        { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
-                    </Select>
-                </Flex>
-            </Center>
-                <Container  maxWidth="container.xl">
-                    { appointments.length > 0?
-                        <TableContainer>
-                            <Table variant="striped" colorScheme="green">
-                                <Thead>
-                                    <Tr>
-                                        <Th>Patient First Name</Th>
-                                        <Th>Patient Last Name</Th>
-                                        <Th>Date</Th>
-                                        <Th>Start Time</Th>
-                                        <Th>Duration</Th>
-                                        <Th>Description</Th>
-                                        <Th>Actions</Th>
-                                    </Tr>
-                                </Thead>
-                                <Tbody>
-                                    { appointments.map(appointment => <AppointmentRow 
-                                                                            patientID={appointment.id.patient.id}
-                                                                            patientFN={appointment.id.patient.firstName}
-                                                                            patientLN={appointment.id.patient.lastName}
-                                                                            date={appointment.id.date}
-                                                                            startTime={appointment.id.startTime}
-                                                                            dentistFN={ null }
-                                                                            dentistLN={ null }
-                                                                            duration={appointment.duration}
-                                                                            description={appointment.description}
-                                                                            setAppointments={setAppointments} />) }
-                                </Tbody>
-                            </Table>
-                        </TableContainer> : null
-                    }
-                </Container>
+            <Flex gap="20px" h="50px" p="10px">
+                <Input type="date" 
+                    w="200px"
+                    onChange={(e) => setDate(e.target.value) }
+                    value={ date }/>
+                
+                <Select w="250px" value={selectedDentistID} onChange={(e) => setSelectedDentistID(e.target.value)}>
+                    { dentists.map(dentist => <option value={ dentist.id }> Dr. {dentist.firstName} {dentist.lastName}</option>) }
+                </Select>
+            </Flex>
+            <Container  maxWidth="container.xl">
+                { appointments.length > 0?
+                    <TableContainer>
+                        <Table variant="striped" colorScheme="green">
+                            <Thead>
+                                <Tr>
+                                    <Th>Patient First Name</Th>
+                                    <Th>Patient Last Name</Th>
+                                    <Th>Date</Th>
+                                    <Th>Start Time</Th>
+                                    <Th>Duration</Th>
+                                    <Th>Description</Th>
+                                    <Th>Actions</Th>
+                                </Tr>
+                            </Thead>
+                            <Tbody>
+                                { appointments.map(appointment => <AppointmentRow 
+                                                                        patientID={appointment.id.patient.id}
+                                                                        patientFN={appointment.id.patient.firstName}
+                                                                        patientLN={appointment.id.patient.lastName}
+                                                                        date={appointment.id.date}
+                                                                        startTime={appointment.id.startTime}
+                                                                        dentistFN={ null }
+                                                                        dentistLN={ null }
+                                                                        duration={appointment.duration}
+                                                                        description={appointment.description}
+                                                                        setAppointments={setAppointments} />) }
+                            </Tbody>
+                        </Table>
+                    </TableContainer> : null
+                }
+            </Container>
         </div>
     );
 }
