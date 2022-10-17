@@ -23,21 +23,18 @@ root.render(
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={ <App /> }>
-					<Route path="patient" element={ <PatientsDashboard />}>
-						<Route path="all" element={ <PatientsList /> }/>
-						<Route path="new" element={ <NewPatientForm />}/>
-						<Route path="search" element={ <SearchPatient /> } />
-						<Route path=":id" element={ <PatientDetail /> } />
-						<Route path=":id/update-form" element={ <UpdatePatientForm /> } />		
-						<Route path=":id/appointment-form" element={ <NewAppointmentForm /> } />				
-					</Route>
-					<Route path="dentist" element={ <DentistDashboard /> }>
-						<Route path="all" element={ <DentistList /> } />
-						<Route path="new" element={ <NewDentistForm /> } />
-						<Route path=":id" element={ <DentistDetail /> } />
-						<Route path=":id/update-form" element={ <UpdateDentistForm />}/>
-					</Route>
-					<Route path="appointment" element={ <AppointmentDashboard/> } />
+					<Route path="patients/all" element={ <PatientsList /> }/>
+					<Route path="patients/new" element={ <NewPatientForm />}/>
+					<Route path="patients/search" element={ <SearchPatient /> } />
+					<Route path="patients/:id" element={ <PatientDetail /> } />
+					<Route path="patients/:id/update-form" element={ <UpdatePatientForm /> } />		
+					<Route path="patients/:id/appointment-form" element={ <NewAppointmentForm /> } />				
+					<Route path="dentists/all" element={ <DentistList /> } />
+					<Route path="dentists/new" element={ <NewDentistForm /> } />
+					<Route path="dentists/:id" element={ <DentistDetail /> } />
+					<Route path="dentists/:id/update-form" element={ <UpdateDentistForm />}/>
+					<Route path="appointments" element={ <AppointmentDashboard/> } />
+					<Route path="*" element={<div>dashboard</div>} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
