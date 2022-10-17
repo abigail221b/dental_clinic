@@ -23,6 +23,7 @@ root.render(
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={ <App /> }>
+					<Route index element={<AppointmentDashboard/>} />
 					<Route path="patients/all" element={ <PatientsList /> }/>
 					<Route path="patients/new" element={ <NewPatientForm />}/>
 					<Route path="patients/search" element={ <SearchPatient /> } />
